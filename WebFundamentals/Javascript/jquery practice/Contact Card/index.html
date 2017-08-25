@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <title>Contact Card</title>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script type="text/javascript">
+            function attach_h3_handlers() {
+                $('button').click( function() {
+                    alert('You clicked a dynamic '); 
+                });
+            }
+            $(document).ready(function(){
+                attach_h3_handlers();
+                $(document).on('click', 'button', function(){
+                    alert('you clicked a button!');
+                    append('<h3>I am a dynamically generated H3</h3>');
+                    attach_h3_handlers();
+                });
+            });
+        </script>
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <form >
+            First name:
+            <input type="text"  name="firstname">
+            <br>
+            Last name:
+            <input type="text" name="lastname" >
+            <br>
+            Description:
+            <textarea name="description">
+            </textarea>
+            <br>
+            <button type="submit" value="Add User" >
+        </form> 
+    </body>
+</html>
+
+

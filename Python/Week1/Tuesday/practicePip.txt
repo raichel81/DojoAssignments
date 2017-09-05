@@ -1,0 +1,74 @@
+Run the following commands:
+
+pip install Django:
+(installed Django library)
+Collecting Django
+  Downloading Django-1.11.4-py2.py3-none-any.whl (6.9MB)
+    100% |################################| 7.0MB 163kB/s
+Requirement already satisfied: pytz in c:\python27\lib\site-packages (from Django)
+Installing collected packages: Django
+Successfully installed Django-1.11.4
+
+pip list:
+(lists all the Python libraries on my computer)
+click (6.7)
+Django (1.11.4)
+Flask (0.12.2)
+itsdangerous (0.24)
+Jinja2 (2.9.6)
+Js2Py (0.50)
+MarkupSafe (1.0)
+pip (9.0.1)
+pyjsparser (2.5.2)
+pytz (2017.2)
+setuptools (28.8.0)
+six (1.10.0)
+tzlocal (1.4)
+Werkzeug (0.12.2)
+
+
+pip install Django (We know you already ran this one. What information do you see returned in terminal after this command?)
+(checks if i already have the library and if i do it doesn't install again)
+Requirement already satisfied: Django in c:\python27\lib\site-packages
+Requirement already satisfied: pytz in c:\python27\lib\site-packages (from Django)
+
+pip freeze (What's the difference between freeze and list?)
+(same as list with different syntax. also, list is being phased out.)
+click==6.7
+Django==1.11.4
+Flask==0.12.2
+itsdangerous==0.24
+Jinja2==2.9.6
+Js2Py==0.50
+MarkupSafe==1.0
+pyjsparser==2.5.2
+pytz==2017.2
+six==1.10.0
+tzlocal==1.4
+Werkzeug==0.12.2
+
+First cd into your Desktop directory (cd ~/Desktop), then run this command: pip freeze > requirements.txt. What do you see when you ls? What's inside this file?
+(created a txt file with the pip freeze information inside.)
+click==6.7
+Django==1.11.4
+Flask==0.12.2
+itsdangerous==0.24
+Jinja2==2.9.6
+Js2Py==0.50
+MarkupSafe==1.0
+pyjsparser==2.5.2
+pytz==2017.2
+six==1.10.0
+tzlocal==1.4
+Werkzeug==0.12.2
+
+pip uninstall Django:
+(uninstalled Dhjango)
+Proceed (y/n)? y
+  Successfully uninstalled Django-1.11.4
+
+pip show Django:
+(shows nothing because it was uninstalled)
+
+pip search Flask. This one might take a moment to execute.
+(lists all flask libraries available, each with a brief description)

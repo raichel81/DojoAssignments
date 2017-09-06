@@ -1,20 +1,20 @@
-// var arr1 = ["cats","cows", "dogs","ducks"];
-// var arr2 = ["meow","moo","woof","quack"];
+var arr1 = ["cats","cows", "dogs","ducks"];
+var arr2 = ["meow","moo","woof","quack"];
 
 function createObj(arr1,arr2) {
-    var obj = {};
+    var newObj = {};
     for(var i = 0; i<arr1.length; i++){
         var key = arr1[i];
         var val = arr2[i];
-        obj[key]= val;
+        newObj[key]= val;
     }
-    console.log(obj);
-    return obj; 
+    console.log(newObj);
+    return newObj; 
 }
 
-createObj(["cats","cows", "dogs","ducks"],["meow","moo","woof","quack"]);
+createObj(arr1,arr2);
 
-var newObj = obj;
+var newObj = createObj(arr1,arr2);
 
 function reverseObj(newObj) {
     for (var key in newObj){

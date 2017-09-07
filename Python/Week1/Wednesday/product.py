@@ -1,3 +1,4 @@
+
 '''Assignment: Product
 The owner of a store wants a program to track products. Create a product class 
 to fill the following requirements.

@@ -1,40 +1,68 @@
-'''Assignment: Hospital
-You're going to build a hospital with patients in it! 
-Create a hospital class.
+import itertools
 
-Before looking at the requirements below, think about the 
-potential characteristics of each patient and hospital. 
-How would you design each?
+class Patient(object):
+    newid = itertools.count().next
+    def __init__(self, name, allergies):
+        self.id = Patient.newid()
+        self.name = name
+        self.allergies = allergies
+        self.bed = None
+    def display(self):
+        print "Unique Id: ",self.id
+        print "Patient Name: ", self.name
+        print "Allergies: ", self.allergies
+        print "Bed #: ", self.bed
+        print
+        return self
+class Hospital(object):
+    def __init__(self,name, capacity):
+        self.patients = []
+        self.name = name
+        self.capacity = capacity
+        self.beds = [None]*capacity            
+    def admit_patient(self, patient):
+        for index, bed in enumerate(self.beds):
+            if bed == None:
+                print "Patient has been admitted"
+                self.patients.append(patient)
+                patient.bed = index
+                self.beds[index] = patient
+                print "Bed number:", patient.bed
+                print
+                return self
+        print "Sorry, hospital is full."
+        print
+        return self
+    def info(self):
+        for patient in self.patients:
+            print "Name: ", patient.name
+            print "Bed number:  ", patient.bed
+        print "Avalable rooms left: ", self.capacity - len(self.patients)
+        print
+        return self
+    def discharge_patient(self, name):
+        for patient in self.patients:
+            if patient.name == name:
+                self.patients.remove(patient)
+                self.beds[patient.bed]= None
+                patient.bed = None
+                print "Patient has been discharged"
+                print "Avalable rooms left: ", self.capacity - len(self.patients)
+                print
 
-Patient:
-Attributes:
 
-• Id: an id number
+p1 = Patient("Bob", ['cats', 'pollen', 'dust'])
+p2 = Patient("Sue", ['trees'])
+p3 = Patient("Helen", [])
 
-• Name
+h1 = Hospital("Memorial", 2)
 
-• Allergies
+p1.display()
+p2.display()
+p3.display()
+h1.admit_patient(p1).info()
+h1.admit_patient(p2).info().discharge_patient("Bob")
+h1.admit_patient(p3).info()
+p3.display()
+p1.display()
 
-• Bed number: should be none by default
-Hospital
-Attributes:
-
-• Patients: an empty array
-
-• Name: hospital name
-
-• Capacity: an integer indicating the maximum number of 
-patients the hospital can hold.
-Methods:
-
-• Admit: add a patient to the list of patients. 
-Assign the patient a bed number. If the length of the list 
-is >= the capacity do not admit the patient. 
-Return a message either confirming that admission is 
-complete or saying the hospital is full.
-
-• Discharge: look up and remove a patient from the list of 
-patients. Change bed number for that patient back to none.
-
-This is a challenging assignment. Ask yourself what input 
-each method requires and what output you will need.'''

@@ -7,7 +7,7 @@ class Call(object):
         self.id = Call.newid()
         self.name = name
         self.number = number
-        self.time = datetime.time()
+        self.time = datetime.datetime.now()
         self.reason = reason
     def display(self):
         print "Unique Id: ",self.id
@@ -17,29 +17,36 @@ class Call(object):
         print "Reason for call: ", self.reason
         return self
 
-class CallCenter(Call):
-    def __init__(self, name, number,reason):
-        super(CallCenter, self).__init__(name, number, reason)
+class CallCenter(object):
+    def __init__(self):
         self.calls = []
         self.queue = len(self.calls)             
-    def add_call(self):
-        self.calls.append(self)
-        print self.calls
+    def add_call(self, call):
+        self.calls.append(call)
+        self.queue +=1
         return self
     def remove(self):
-        self.calls.remove([0])
-        print self.calls
-    def info(self, *calls):
-        for self.call in calls:
-            print "Name: "+ Call.name+ " Number:  "+ Call.number
+        self.calls.remove(self.calls[0])
+        self.queue -=1
+    def info(self):
+        for call in self.calls:
+            print "Name: "+ call.name+ " Number:  "+ call.number
         print self.queue
+    def delete_by_number(self, number):
+        for call in self.calls:
+            if call.number == number:
+                self.calls.remove(call)
 
-c1 = Call("Rachel", "206-471-5071", "just cause")
+c1 = Call("Rachel", "206-5555", "just cause")
 
 c1.display()
-c2 = Call("Jeremy", "206-553-9430", "returning call")
+c2 = Call("Jeremy", "206-7777", "returning call")
 
 c2.display()
-c3 = CallCenter("Rachel", "206-471-5071", "just cause")
-c3.add_call()
-c3.remove()
+call_center1 = CallCenter()
+call_center1.add_call(c2)
+call_center1.add_call(c1)
+
+call_center1.info()
+call_center1.delete_by_number("206-5555")
+call_center1.info()

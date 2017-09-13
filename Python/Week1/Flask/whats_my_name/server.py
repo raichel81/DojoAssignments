@@ -1,13 +1,13 @@
 from flask import Flask, render_template, request, redirect
 app = Flask(__name__)
 # our index route will handle rendering our form
-@app.route('/', methods=['POST'])
+@app.route('/')
 def index():
   return render_template("index.html")
 # this route will handle our form submission
 # notice how we defined which HTTP methods are allowed by this route
-@app.route('/process', methods=['GET'])
-def process():
+@app.route('/process', methods=['POST'])
+def print_name():
   username = request.form['name']
   print username
   return redirect('/')

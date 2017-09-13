@@ -1,0 +1,19 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Counter</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <h1>Root viewed</h1>
+        <h2>{{session['counts'] }} times!</h2>
+
+        <form method="link" action="/reload">
+            <input type="submit" value="+2">
+        </form>
+        <form method="link" action="/reset">
+            <input type="submit" value="Reset">
+        </form>
+    </body>
+</html>

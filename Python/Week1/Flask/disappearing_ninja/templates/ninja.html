@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       <title>Ninjas</title>
+    </head>
+    <body>
+        <img src="{{ url_for('static', filename='tmnt.png') }}">
+        <h3>What's your favorite ninja color?</h3>
+        <form action="/select_color" method="post">
+            <select name="color">
+                <option>Orange</option>
+                <option>Blue</option>
+                <option>Red</option>
+                <option>Purple</option>
+            </select>
+            <br><br>
+            <input type="submit">
+        </form>
+        <img src="{{color}}">
+    </body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Random Word</title>
+    </head>
+    <body>
+        <h1>Random word (attempt #  {{counts}})</h1>
+        <div style="border: 1px solid black; display: inline-block" >{{word}}</div>
+        <form method="post" action="/random_word/">
+            {% csrf_token %}
+            <input type="submit" value="Generate">
+        </form>
+        <form method="post" action="/random_word/reset/">
+            {% csrf_token %}
+            <input type="submit" value="Reset">
+        </form>
+    </body>
+</html>
